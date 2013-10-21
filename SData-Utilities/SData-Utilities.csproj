@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC3CDA1C-EDB4-4131-9974-23E9CD9E229F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SData-Utilities</RootNamespace>
+    <AssemblyName>SData-Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FileHelpers">
+      <HintPath>..\..\..\FileHelpers_2_0_0_bin_docs_wizard\FileHelpers\Binaries\DotNet 2.0\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Entity.Interfaces">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.Entity.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Form.Interfaces">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.Form.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Platform">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Platform.Application">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.Platform.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Platform.Application.UI.Web">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.Platform.Application.UI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.Platform.WebPortal">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.Platform.WebPortal.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.BusinessRules">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.BusinessRules.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.Client.GroupBuilder">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.Client.GroupBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.Entities">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.PickLists">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.PickLists.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.Security">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.Security.Entities">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.Security.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.Web">
+      <HintPath>..\..\NDR_SalesLogix_BusinessRules\NDR.SalesLogix.BusinessRules\bin\Debug\Sage.SalesLogix.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SData.Client">
+      <HintPath>bin\Sage.SData.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseImport.cs" />
+    <Compile Include="csvImport.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="sdata.cs" />
+    <Compile Include="SDataAccess.cs" />
+    <Compile Include="Utilities.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

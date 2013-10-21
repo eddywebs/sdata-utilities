@@ -1,0 +1,4 @@
+#settings
+
+*.settings
+/SData-Utilities/bin/Debug/
