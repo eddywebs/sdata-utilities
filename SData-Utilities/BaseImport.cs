@@ -11,7 +11,7 @@ using System.Globalization;
 using System.Threading;
 using System.Diagnostics;
 
-namespace SData_Deleter
+namespace SData_Utilities
 {
     //Base class that manages the database/SData connections for the other classes.  There are also 2 lower level classes that actually hold the database/sdata connections. This level only defines them so that they don't have to be defined in every class.
     //It also contains most of the searches used by the rest of the import.
@@ -19,7 +19,6 @@ namespace SData_Deleter
 
     internal class BaseImport
     {
-        internal DataAccess dataAccess = null;
         internal SData sdata = null;
         internal string sql = null;
         internal DataTable dt = null;
@@ -29,7 +28,6 @@ namespace SData_Deleter
         internal BaseImport()
         {        
             textInfo = new CultureInfo("en-US",false).TextInfo;
-            dataAccess = new DataAccess();
             sdata = new SData();
         }
 
@@ -37,7 +35,7 @@ namespace SData_Deleter
         {
             try
             {
-                dataAccess = null;
+                
                 sdata = null;
             }
             catch { };
@@ -293,7 +291,7 @@ namespace SData_Deleter
         //{
 
         //    //Call the view to get a listing of all records that exist in SLX, but not MP; these records should be deleted.
-        //    sql = "select top 3 * from contact"; //SData_Deleter.Properties.Settings.Default.Sql;
+        //    sql = "select top 3 * from contact"; //SData_Utilities.Properties.Settings.Default.Sql;
         //    dataAccess = new DataAccess();
         //    dt = new DataTable();
         //    dt = dataAccess.mpDB.GetDatatable("select top 3 * from contact");
@@ -304,17 +302,17 @@ namespace SData_Deleter
         //    {
         //        try
         //        {
-        //            Console.WriteLine("Deleting the recordID: " + TypeConversion.ToString(dr["'" + SData_Deleter.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]));
+        //            Console.WriteLine("Deleting the recordID: " + TypeConversion.ToString(dr["'" + SData_Utilities.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]));
 
         //            SDataSingleResourceRequest req = new SDataSingleResourceRequest(sdata.sdataService);
         //            req.ResourceKind = resourceKind;
-        //            req.ResourceSelector = "'" + TypeConversion.ToString(dr["'" + SData_Deleter.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]) + "'";
+        //            req.ResourceSelector = "'" + TypeConversion.ToString(dr["'" + SData_Utilities.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]) + "'";
         //            req.Delete();
         //        }
         //        catch (Exception ex)
         //        {
         //            Console.WriteLine("ahh oo there was an error check eventViewer for details.");
-        //            Utilities.CreateEventLog("Error on Delete Loop " + TypeConversion.ToString(dr["'" + SData_Deleter.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]) + Environment.NewLine + ex.Message, EventLogEntryType.Error);
+        //            Utilities.CreateEventLog("Error on Delete Loop " + TypeConversion.ToString(dr["'" + SData_Utilities.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]) + Environment.NewLine + ex.Message, EventLogEntryType.Error);
         //        }
         //    }
         //}

@@ -11,7 +11,7 @@ using System.IO;
 using FileHelpers;
 using Sage.Entity.Interfaces;
 
-namespace SData_Deleter
+namespace SData_Utilities
 {
     class Program : BaseImport
     {
@@ -25,54 +25,24 @@ namespace SData_Deleter
 
             FileHelperEngine engine = new FileHelperEngine(typeof(csvImport));
             csvImport[] res = engine.ReadFile(importFile) as csvImport[];
-            
+
+
+            // bass.massUpdateRecords("updateThis", " "); << update few a recordSet for a single passed value
+
             foreach (csvImport importRecord in res)
             {
                 //sdataUpdate(importRecord.CustCode, importRecord.Users);              
                 bass.sdataAdder(importRecord, "contactTrials");
                 counter += 1;
-                Console.WriteLine("processed .csv record : " + importRecord.contactID +" "+importRecord.contactID + " counter is at " + counter + "\n");
+                Console.WriteLine("processed .csv record : " + importRecord.contactID + " " + importRecord.contactID + " counter is at " + counter + "\n");
             }
 
-            Console.Write("\n" +"processed:  "+counter+" records \n" + "All done !");
+            Console.Write("\n" + "processed:  " + counter + " records \n" + "All done !");
+
+
             Console.ReadLine();
         }
 
-//        public void parseCsv(string importFile)
-//        {
-//            int counter = 0;
-//            FileHelperEngine engine = new FileHelperEngine(typeof(csvImport));
-//            csvImport[] res= engine.ReadFile(importFile) as csvImport[];           
-
-//            foreach (csvImport importRecord in res)
-//            {            
-//                sdataUpdate(importRecord.CustCode, importRecord.Users);
-//                counter += 1;
-//                Console.WriteLine("parseCSV record at: " + importRecord.CustCode + "counter is at " + counter + "\n");
-////////////////// Below code for Adding new users
-//               // var req = new SDataResourceCollectionRequest(sdata.sdataService); // var req = new SDataResourceCollectionRequest(svc);
-//               // req.ResourceKind = "Accounts";
-                
-//               //req.QueryValues.Add("where", "AccountKey eq \""+importRecord.accountKey+"\"");
-//               //AtomFeed feed;
-//               //feed = req.Read();
-               
-//               // if (feed.Entries.Count() == 1)
-//               //{
-//               //    counter++;
-//               //   //send the entry to add the contact
-//               //    foreach (AtomEntry entry in feed.Entries)
-//               //    {
-//               //        sdataAdder(entry, importRecord,counter);
-//               //    }
-
-//               //}
-//               // else 
-//               //      Console.WriteLine("could not find the account name: "+ importRecord.accountName+" \n");
-
-//            }
-
-//        }
 
         public AtomFeed recordSetLoader(string searchValue, string resourceKind, string searchParam)
             //this method returns the record set through sdata based on single property for any entity
@@ -167,14 +137,17 @@ namespace SData_Deleter
             }
 
         }
-        public void sdataUpdate(string recordLocater,string updateValue)
+        public void massUpdateRecords(string recordSetCondition,string updateValue)
+            //this method mass updates a single value of a recordSet
+            //@importRecord: a single conditional flag used as recordSetLocater
+            //@updateValue: update value
         {
 
             SDataResourceCollectionRequest req = new SDataResourceCollectionRequest(sdata.sdataService);
 
             //search for contact by passed param -- email
             req.ResourceKind = "contacts";
-            req.QueryValues.Add("where", "Customercode eq \"" + recordLocater + "\"");
+            req.QueryValues.Add("where", "UserField8 eq \"" + recordSetCondition + "\"");
             //do we need to define the number of record count whenver quering from sdata ?
             req.Count = 2000;
 
@@ -191,7 +164,7 @@ namespace SData_Deleter
                 
                 SDataPayload payLoad = entry.GetSDataPayload();
                 //use param2 as value updated
-                payLoad.Values["UserField8"] = updateValue;
+                payLoad.Values["OtherPhone"] = updateValue;
 
                //  payLoad.Values["FaxTitle"] = "";
               //  payLoad.Values["UserField4"] = "account manager synced with ods";
@@ -204,7 +177,7 @@ namespace SData_Deleter
             }
 
             Console.WriteLine("process affected " + counter + " records");
-           // req.ResourceSelector = "'" + TypeConversion.ToString(dr["'" + SData_Deleter.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]) + "'";
+           // req.ResourceSelector = "'" + TypeConversion.ToString(dr["'" + SData_Utilities.Properties.Settings.Default.EntityIDColumnName.ToString() + "'"]) + "'";
             
         }
 

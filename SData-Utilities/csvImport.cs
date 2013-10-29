@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using FileHelpers;
 
-namespace SData_Deleter
+namespace SData_Utilities
 {
     [DelimitedRecord(",")] 
     public class csvImport

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace SData_Deleter
+namespace SData_Utilities
 {
     //Static class to provide access to the Event Viewer to write information/warnings/errors.
     internal static class Utilities

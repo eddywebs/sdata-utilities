@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SData_Deleter.Properties {
+namespace Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace SData_Deleter.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("qaminsky")]
+        [global::System.Configuration.DefaultSettingValueAttribute("slx1app1")]
         public string SDataHost {
             get {
                 return ((string)(this["SDataHost"]));
@@ -52,7 +52,7 @@ namespace SData_Deleter.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("password")]
+        [global::System.Configuration.DefaultSettingValueAttribute("S1natra")]
         public string SDataPassword {
             get {
                 return ((string)(this["SDataPassword"]));
